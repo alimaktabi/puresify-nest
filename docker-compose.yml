@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  database:
+    image: 'postgres:14.4'
+
+    ports:
+      - 2999:5432
+
+    environment:
+      - POSTGRES_USER=puresify
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_DB=puresifydb
+
+
+    volumes:
+      - ~/db-data/:/var/lib/postgresql/data/
