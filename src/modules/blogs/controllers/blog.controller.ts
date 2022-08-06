@@ -85,9 +85,22 @@ export class BlogController {
         show: true,
       },
       select: {
-        body: false,
-        mediaAudioId: false,
-        mediaVideoId: false,
+        category: {
+          id: true,
+          name: true,
+        },
+        media: {
+          alt: true,
+          id: true,
+          path: true,
+        },
+        type: true,
+        viewsCount: true,
+        title: true,
+        publishAt: true,
+        description: true,
+        priceAsMinutes: true,
+        id: true,
       },
       relations: {
         user: false,
@@ -144,8 +157,16 @@ export class BlogController {
     @Auth('id') userId: number,
     @Body() data: BlogDto,
   ) {
-    const user = await this.userRepo.findOneBy({
-      id: userId,
+    const user = await this.userRepo.findOne({
+      where: {
+        id: userId,
+      },
+      select: {
+        id: true,
+        firstName: true,
+        lastName: true,
+        phoneNumber: true,
+      },
     })
 
     return this.blogService.blogRepo.save({
@@ -235,19 +256,24 @@ export class BlogController {
     @Param('id') id: number,
     @Auth('id') userId: number,
   ) {
-    const user = await this.userRepo.findOneBy({
-      id: userId,
+    const user = await this.userRepo.findOne({
+      where: {
+        id: userId,
+      },
+      relations: {
+        library: true,
+      },
     })
 
     const blog = await this.blogService.blogRepo.findOneBy({
       id,
-      publishAt: MoreThan(new Date()),
+      publishAt: LessThan(new Date()),
       show: true,
     })
 
     if (!blog) throw new NotFoundException('blog not found')
 
-    if (!user.library.includes(blog))
+    if (!user.library.find((item) => item.id === blog.id))
       throw new ForbiddenException(
         "You don't have this blog in your library",
       )

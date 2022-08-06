@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"phoneNumber\": \"09331400113\",\r\n    \"password\": \"123456\"\r\n}",
+							"raw": "{\r\n    \"phoneNumber\": \"09331600113\",\r\n    \"password\": \"123456\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -43,7 +43,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"firstName\": \"Ali\",\r\n    \"lastName\": \"Maktabi\",\r\n    \"phoneNumber\": \"09331400113\",\r\n    \"password\": \"123456\"\r\n}",
+							"raw": "{\r\n    \"firstName\": \"Ali\",\r\n    \"lastName\": \"Maktabi\",\r\n    \"phoneNumber\": \"09331600113\",\r\n    \"password\": \"123456\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -95,7 +95,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"تست\",\r\n    \"slug\": \"test\"\r\n}",
+							"raw": "{\r\n    \"name\": \"آموزش های میلاد\",\r\n    \"slug\": \"milad-tutorials\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -121,7 +121,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"تست 2\",\r\n    \"slug\": \"test\"\r\n}",
+							"raw": "{\r\n    \"name\": \"تست 2\",\r\n    \"slug\": \"test23\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -145,7 +145,35 @@
 					"name": "get category",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/categories/milad-tutorials",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"categories",
+								"milad-tutorials"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category (ADMIN)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/categories/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"categories",
+								"1"
+							]
+						}
 					},
 					"response": []
 				}
@@ -160,13 +188,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{HOST}}/upload/3",
+							"raw": "{{HOST}}/upload/1",
 							"host": [
 								"{{HOST}}"
 							],
 							"path": [
 								"upload",
-								"3"
+								"1"
 							]
 						}
 					},
@@ -282,7 +310,8 @@
 							{
 								"key": "Authorization",
 								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInBob25lTnVtYmVyIjoiMDkzMzE2MDAxMTMiLCJpYXQiOjE2NTk2NDQyODIsImV4cCI6MTY2MjIzNjI4Mn0.PTZpsZJC4HK4bXn-Y0-S-xA6d-HBgMk8N4-A5Ck2qiU",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"url": {
@@ -307,7 +336,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{HOST}}/blogs/?page=1&perPage=15&name=Test",
+							"raw": "{{HOST}}/blogs/?page=1&perPage=15",
 							"host": [
 								"{{HOST}}"
 							],
@@ -326,7 +355,8 @@
 								},
 								{
 									"key": "name",
-									"value": "Test"
+									"value": "Test",
+									"disabled": true
 								}
 							]
 						}
@@ -339,13 +369,13 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "{{HOST}}/blogs/8/purchase",
+							"raw": "{{HOST}}/blogs/1/purchase",
 							"host": [
 								"{{HOST}}"
 							],
 							"path": [
 								"blogs",
-								"8",
+								"1",
 								"purchase"
 							]
 						}
@@ -359,7 +389,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"type\": 0,\r\n    \"title\": \"Test blog eaopsdkspaodaspd\",\r\n    \"description\": \"AO{dkpasdojawjifqfj -9i2-1ke-210dk -0dk-201dkalks;ad\",\r\n    \"body\": \"<section>aopdkaospdk9diq-209ie-12i21-3021-0321-03</section>\",\r\n    \"mediaId\": 1,\r\n    \"show\": true,\r\n    \"publishAt\": \"Fri Aug 05 2022 14:08:14 GMT+0430 (Iran Daylight Time)\",\r\n    \"priceAsMinutes\": 30\r\n}",
+							"raw": "{\r\n    \"type\": 0,\r\n    \"title\": \"آموزش مفتی میلاد\",\r\n    \"description\": \"amuzesh mofti milad namoosan bekharid khodam pul midam\",\r\n    \"body\": \"<section>aopdkaospdk9diq-209ie-12i21-3021-0321-03</section>\",\r\n    \"mediaId\": 1,\r\n    \"categoryId\": 1,\r\n    \"show\": true,\r\n    \"publishAt\": \"Fri Aug 05 2022 14:08:14 GMT+0430 (Iran Daylight Time)\",\r\n    \"priceAsMinutes\": 30\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -404,7 +434,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"type\": 0,\r\n    \"title\": \"Test blog eaopsdkspaodaspd (Duplicate)\",\r\n    \"description\": \"AO{dkpasdojawjifqfj -9i2-1ke-210dk -0dk-201dkalks;ad\",\r\n    \"body\": \"<section>aopdkaospdk9diq-209ie-12i21-3021-0321-03</section>\",\r\n    \"mediaId\": 1,\r\n    \"show\": true,\r\n    \"publishAt\": \"Fri Aug 05 2022 14:08:14 GMT+0430 (Iran Daylight Time)\",\r\n    \"priceAsMinutes\": 30\r\n}",
+							"raw": "{\r\n    \"type\": 0,\r\n    \"title\": \"Test blog eaopsdkspaodaspd (Duplicate)\",\r\n    \"description\": \"AO{dkpasdojawjifqfj -9i2-1ke-210dk -0dk-201dkalks;ad\",\r\n    \"body\": \"<section>aopdkaospdk9diq-209ie-12i21-3021-0321-03</section>\",\r\n    \"mediaId\": 1,\r\n    \"show\": true,\r\n    \"publishAt\": \"Fri Aug 05 2022 14:08:14 GMT+0430 (Iran Daylight Time)\",\r\n    \"priceAsMinutes\": 30,\r\n    \"categoryId\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -412,14 +442,51 @@
 							}
 						},
 						"url": {
-							"raw": "{{HOST}}/blogs/8/update",
+							"raw": "{{HOST}}/blogs/10/update",
 							"host": [
 								"{{HOST}}"
 							],
 							"path": [
 								"blogs",
-								"8",
+								"10",
 								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Preview blog",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/blogs/1/preview",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"blogs",
+								"1",
+								"preview"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Blog (Owned)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/blogs/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"blogs",
+								"1"
 							]
 						}
 					},
@@ -433,7 +500,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJJZCI6MiwicGhvbmVOdW1iZXIiOiIwOTMzMTQwMDExMyIsInJvbGVzIjpbMV0sImZpcnN0TmFtZSI6IkFsaSIsImxhc3ROYW1lIjoiTWFrdGFiaSIsImlhdCI6MTY1OTY5MTUxMSwiZXhwIjoxNjYyMjgzNTExfQ.EBZH2dyRlKnDxN-tga052JISXYbqtRGUvsUTFZw_hK4",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJJZCI6MSwicGhvbmVOdW1iZXIiOiIwOTMzMTYwMDExMyIsInJvbGVzIjpbMV0sImZpcnN0TmFtZSI6IkFsaSIsImxhc3ROYW1lIjoiTWFrdGFiaSIsImlhdCI6MTY1OTgwMjI3NywiZXhwIjoxNjYyMzk0Mjc3fQ.Ynlkt_r9nxbpcDUQsSssEoUDJav9iWdb9ig2wAlPBbY",
 				"type": "string"
 			}
 		]

@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   NotFoundException,
   Param,
@@ -62,6 +63,15 @@ export class CategoryController {
     })
   }
 
+  @Delete(':id')
+  @UseGuards(JwtGuard)
+  @Roles(UserType.admin)
+  deleteCategory(@Param('id') categoryId: number) {
+    return this.categoryService.categoryRepo.delete(
+      categoryId,
+    )
+  }
+
   @Get(':slug')
   async getCategory(@Param('slug') slug: string) {
     const category =
@@ -86,6 +96,7 @@ export class CategoryController {
         show: true,
       },
       select: {
+        id: true,
         title: true,
         category: {
           name: true,
