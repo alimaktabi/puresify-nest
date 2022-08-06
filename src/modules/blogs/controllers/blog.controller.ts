@@ -44,15 +44,21 @@ export class BlogController {
     const user = await this.userRepo.findOne({
       where: { id: userId },
       relations: {
-        library: {
-          mediaAudioId: false,
-          mediaVideoId: false,
-          body: false,
-        },
+        library: true,
       },
     })
 
     return user.library
+      .filter((item) => item.publishAt < new Date())
+      .map((item) => ({
+        id: item.id,
+        title: item.title,
+        description: item.description,
+        priceAsMinutes: item.priceAsMinutes,
+        publishAt: item.publishAt,
+        viewsCount: item.viewsCount,
+        media: item.media,
+      }))
   }
 
   @Get()
