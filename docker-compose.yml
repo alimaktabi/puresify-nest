@@ -14,4 +14,4 @@ services:
 
 
     volumes:
-      - ~/db-data/:/var/lib/postgresql/data/
+      - ./.docker/:/var/lib/postgresql/data/
