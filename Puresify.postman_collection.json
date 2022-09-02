@@ -1,0 +1,528 @@
+{
+	"info": {
+		"_postman_id": "39955091-0c60-49af-a277-c084c43b72c1",
+		"name": "Puresify",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15774707"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phoneNumber\": \"09331600113\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/auth/login",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Ali\",\r\n    \"lastName\": \"Maktabi\",\r\n    \"phoneNumber\": \"09331600113\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/auth/register",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "get categories",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/categories",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create category (ADMIN)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"آموزش های میلاد\",\r\n    \"slug\": \"milad-tutorials\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/categories",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update category (ADMIN)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"تست 2\",\r\n    \"slug\": \"test23\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/categories/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/categories/milad-tutorials",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"categories",
+								"milad-tutorials"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category (ADMIN)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/categories/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Media",
+			"item": [
+				{
+					"name": "get media",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/upload/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"upload",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit media (ADMIN)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Ali/Downloads/image_2022_03_13T13_43_41_608Z (1).png"
+								},
+								{
+									"key": "alt",
+									"value": "salam dadash",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}/upload/5",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"upload",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete media (ADMIN)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/upload/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"upload",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create media (ADMIN)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInBob25lTnVtYmVyIjoiMDkzMzE0MDAxMTMiLCJpYXQiOjE2NTk2NDU2MzMsImV4cCI6MTY2MjIzNzYzM30.Qt7C3SqUXI5levNSgPn7Iwh-LmlKQiu41QJLV4CwNRg",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Ali/Downloads/1655806787-1VvD.jpg"
+								},
+								{
+									"key": "alt",
+									"value": "ali ",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}/upload",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"upload"
+							],
+							"query": [
+								{
+									"key": "file",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Blogs",
+			"item": [
+				{
+					"name": "owned blogs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInBob25lTnVtYmVyIjoiMDkzMzE2MDAxMTMiLCJpYXQiOjE2NTk2NDQyODIsImV4cCI6MTY2MjIzNjI4Mn0.PTZpsZJC4HK4bXn-Y0-S-xA6d-HBgMk8N4-A5Ck2qiU",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/blogs/my-blogs",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"blogs",
+								"my-blogs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all blogs",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/blogs/?page=1&perPage=15",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"blogs",
+								""
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "perPage",
+									"value": "15"
+								},
+								{
+									"key": "name",
+									"value": "Test",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "purchase blog",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/blogs/1/purchase",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"blogs",
+								"1",
+								"purchase"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create blog(ADMIN)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": 0,\r\n    \"title\": \"آموزش مفتی میلاد\",\r\n    \"description\": \"amuzesh mofti milad namoosan bekharid khodam pul midam\",\r\n    \"body\": \"<section>aopdkaospdk9diq-209ie-12i21-3021-0321-03</section>\",\r\n    \"mediaId\": 1,\r\n    \"categoryId\": 1,\r\n    \"show\": true,\r\n    \"publishAt\": \"Fri Aug 05 2022 14:08:14 GMT+0430 (Iran Daylight Time)\",\r\n    \"priceAsMinutes\": 30\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/blogs/create",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"blogs",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete blog (ADMIN)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/blogs/4",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"blogs",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update blog (ADMIN)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": 0,\r\n    \"title\": \"Test blog eaopsdkspaodaspd (Duplicate)\",\r\n    \"description\": \"AO{dkpasdojawjifqfj -9i2-1ke-210dk -0dk-201dkalks;ad\",\r\n    \"body\": \"<section>aopdkaospdk9diq-209ie-12i21-3021-0321-03</section>\",\r\n    \"mediaId\": 1,\r\n    \"show\": true,\r\n    \"publishAt\": \"Fri Aug 05 2022 14:08:14 GMT+0430 (Iran Daylight Time)\",\r\n    \"priceAsMinutes\": 30,\r\n    \"categoryId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/blogs/10/update",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"blogs",
+								"10",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Preview blog",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/blogs/1/preview",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"blogs",
+								"1",
+								"preview"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Blog (Owned)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/blogs/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"blogs",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJJZCI6MSwicGhvbmVOdW1iZXIiOiIwOTMzMTYwMDExMyIsInJvbGVzIjpbMV0sImZpcnN0TmFtZSI6IkFsaSIsImxhc3ROYW1lIjoiTWFrdGFiaSIsImlhdCI6MTY1OTgwMjI3NywiZXhwIjoxNjYyMzk0Mjc3fQ.Ynlkt_r9nxbpcDUQsSssEoUDJav9iWdb9ig2wAlPBbY",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

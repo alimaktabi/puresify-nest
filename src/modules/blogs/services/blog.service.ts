@@ -33,9 +33,22 @@ export class BlogService {
         show: true,
       },
       select: {
-        mediaAudioId: false,
-        mediaVideoId: false,
-        body: false,
+        category: {
+          id: true,
+          name: true,
+        },
+        media: {
+          alt: true,
+          id: true,
+          path: true,
+        },
+        type: true,
+        viewsCount: true,
+        title: true,
+        publishAt: true,
+        description: true,
+        priceAsMinutes: true,
+        id: true,
       },
       relations: {
         user: false,

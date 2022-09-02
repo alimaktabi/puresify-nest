@@ -1,3 +1,11 @@
+<h1>Run Project</h1>
+
+<p>yarn</p>
+<p>docker-compose up -d</p>
+<p>yarn start:dev</p>
+
+
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
