@@ -89,6 +89,10 @@ export class BlogController {
           id: true,
           name: true,
         },
+        user: {
+          firstName: true,
+          lastName: true,
+        },
         media: {
           alt: true,
           id: true,
@@ -103,7 +107,7 @@ export class BlogController {
         id: true,
       },
       relations: {
-        user: false,
+        user: true,
         media: true,
       },
     })

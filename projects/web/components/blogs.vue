@@ -54,7 +54,9 @@
             }}</small
           >
           <div class="text-left mt-4">
-            <v-btn color="primary"> مشاهده </v-btn>
+            <NuxtLink :to="`/blogs/${blog.id}`">
+              <v-btn color="primary"> مشاهده </v-btn>
+            </NuxtLink>
           </div>
         </v-card>
       </v-col>
