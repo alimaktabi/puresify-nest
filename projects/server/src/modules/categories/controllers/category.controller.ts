@@ -95,6 +95,9 @@ export class CategoryController {
         publishAt: LessThanOrEqual(new Date()),
         show: true,
       },
+      relations: {
+        media: true,
+      },
       select: {
         id: true,
         title: true,

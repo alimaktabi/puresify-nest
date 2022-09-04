@@ -120,13 +120,11 @@
 import Vue from 'vue'
 import { RequiredField } from '../../validations/required'
 import Editor from '@tinymce/tinymce-vue'
-import MediaUpload from '~/components/media-upload'
 
 export default Vue.extend({
   name: 'create-blog',
   components: {
     editor: Editor,
-    MediaUpload,
   },
   data: () => ({
     loading: false,
