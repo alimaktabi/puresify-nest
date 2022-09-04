@@ -52,8 +52,13 @@
           {{ $store.state.auth.userData.minutes }}
           دقیقه
         </v-btn>
+        <nuxt-link to="/profile">
         <v-btn color="primary" icon>
           <v-icon size="30">mdi-account-circle</v-icon>
+        </v-btn>
+          </nuxt-link>
+        <v-btn @click="logout()" style="background-color: lightcoral">
+          <v-icon>mdi-logout</v-icon>
         </v-btn>
       </div>
       <div v-else class="d-flex">
@@ -91,11 +96,14 @@
         <Nuxt />
       </v-container>
     </v-main>
+ <Footer />
   </v-app>
+
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import Footer from '~/components/footer.vue'
 
 export default Vue.extend({
   name: 'DefaultLayout',
@@ -105,5 +113,11 @@ export default Vue.extend({
   created() {
     this.$store.dispatch('auth/fetchAuth')
   },
+  methods: {
+    logout(){
+      localStorage.clear()
+      this.$store.commit("auth/logout")
+    }
+  }
 })
 </script>

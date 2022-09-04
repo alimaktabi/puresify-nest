@@ -50,6 +50,13 @@
           >
             خریداری شده
           </v-btn>
+          <v-btn
+            @click="Delete()"
+            style="background-color: lightcoral"
+            v-if="$store.state.auth.userData?.roles.includes(1)"
+          >
+            حذف کردن
+          </v-btn>
         </v-card>
       </v-col>
 
@@ -109,11 +116,18 @@ export default Vue.extend({
         )
         .then((res) => {
           this.$toast.success('مقاله خریده شد')
+          this.$store.dispatch('auth/fetchAuth')
         })
         .catch(() => {
           this.loading = false
         })
     },
+    Delete(){
+      this.$axios.delete("/blogs/" + this.$route.params.id)
+      .then((res) => {
+        this.$router.push("/")
+      })
+    }
   },
   mounted() {
     this.getBlog()

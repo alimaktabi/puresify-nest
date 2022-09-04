@@ -58,7 +58,7 @@ export class AuthController {
   @Get('me')
   @UseGuards(JwtGuard)
   async getMe(@Auth() user: User) {
-    return user
+    return this.authService.userRepo.findOne({where:{id:user.id}})
   }
 
   @Post('login')

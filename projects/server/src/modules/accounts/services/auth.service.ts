@@ -39,7 +39,7 @@ export class AuthService {
     return this.removePassword(
       await this.userRepo.save({
         ...user,
-        roles: [UserType.admin],
+        roles: [UserType.user],
         password: await argon.hash(user.password),
       }),
     )
