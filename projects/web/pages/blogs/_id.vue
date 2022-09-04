@@ -33,12 +33,13 @@
               v-text="folder.name(blog)"
             ></v-list-item-title>
           </v-list-item>
-          <nuxt-link to="/blogPurchase"
-            ><v-btn
-              class="primary"
-              style="margin-bottom: 28px; margin-top: 28px"
-              >افزودن به سبد خرید</v-btn
-            ></nuxt-link
+          <v-btn
+            @click="purchaseBlog"
+            class="primary"
+            :loading="loading"
+            :disabled="loading"
+            style="margin-bottom: 28px; margin-top: 28px"
+            >افزودن به سبد خرید</v-btn
           >
         </v-card>
       </v-col>
@@ -60,6 +61,7 @@ export default Vue.extend({
     constants: {
       API_HOST: process.env.API_HOST,
     },
+    loading: false,
     folders: [
       {
         title: 'عنوان دوره',
@@ -88,6 +90,19 @@ export default Vue.extend({
         .then((res) => {
           console.log(res.data)
           this.blog = res.data
+        })
+    },
+    purchaseBlog() {
+      this.loading = true
+      this.$axios
+        .post(
+          '/blogs/' + this.$route.params.id + '/purchase',
+        )
+        .then((res) => {
+          this.$toast.success('مقاله خریده شد')
+        })
+        .catch(() => {
+          this.loading = false
         })
     },
   },

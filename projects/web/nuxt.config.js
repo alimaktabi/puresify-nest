@@ -46,11 +46,25 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/toast',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
   ],
+
+    toast: {
+      position: 'top-right',
+      register: [ // Register custom toasts
+        // {
+        //   name: 'my-error',
+        //   message: 'Oops...Something went wrong',
+        //   options: {
+        //     type: 'error'
+        //   }
+        // }
+      ]
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
