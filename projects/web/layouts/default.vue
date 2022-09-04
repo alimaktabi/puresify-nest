@@ -9,7 +9,12 @@
         <NuxtLink class="text-decoration-none" to="/blogs">
           <v-btn color="primary" text> دوره ها </v-btn>
         </NuxtLink>
-        <v-btn color="primary" text> دسته بندی ها</v-btn>
+        <NuxtLink
+          class="text-decoration-none"
+          to="/categories"
+        >
+          <v-btn color="primary" text> دسته بندی ها</v-btn>
+        </NuxtLink>
         <v-btn color="primary" text>درباره ما</v-btn>
         <v-btn color="primary" text> تماس با ما</v-btn>
       </v-flex>
