@@ -36,11 +36,20 @@
           <v-btn
             @click="purchaseBlog"
             class="primary"
+            v-if="!blog.owned"
             :loading="loading"
             :disabled="loading"
             style="margin-bottom: 28px; margin-top: 28px"
             >افزودن به سبد خرید</v-btn
           >
+          <v-btn
+            v-else
+            style="margin-bottom: 28px; margin-top: 28px"
+            class="primary"
+            disabled
+          >
+            خریداری شده
+          </v-btn>
         </v-card>
       </v-col>
 
